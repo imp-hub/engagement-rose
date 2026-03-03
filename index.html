@@ -1,0 +1,427 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+  <meta name="theme-color" content="#faf5ef" />
+  <title>Ittymathew &amp; Rosemary — Engagement</title>
+  <link rel="stylesheet" href="css/styles.css?v=8" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500&display=swap" rel="stylesheet" />
+</head>
+<body>
+
+  <!-- ═══════════════════════════════════════════
+       SECTION 1 — Landing / Cream Cover
+  ═══════════════════════════════════════════ -->
+  <section id="landing" class="screen screen--landing" aria-label="Landing">
+
+    <!-- Full-screen cream cover — entire surface is a tap target -->
+    <div class="cream-cover" id="creamCover">
+
+      <!-- Envelope back: V-flap, highlights, drop shadow, layered paper depth -->
+      <svg class="cover__folds" viewBox="0 0 100 100" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+        <defs>
+          <!-- Envelope body — darkest to dark palette -->
+          <linearGradient id="ef-body" x1="0" y1="0" x2="0" y2="100" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#670010"/>
+            <stop offset="100%" stop-color="#3c0000"/>
+          </linearGradient>
+          <!-- Top V-flap — medium red, darker than before to sit closer to body -->
+          <linearGradient id="ef-flap" x1="0" y1="0" x2="0" y2="52" gradientUnits="userSpaceOnUse">
+            <stop offset="0%"   stop-color="#960018"/>
+            <stop offset="100%" stop-color="#5a000e"/>
+          </linearGradient>
+          <!-- Drop-shadow for the top flap edge -->
+          <filter id="ef-fshadow" x="-5%" y="-5%" width="110%" height="130%">
+            <feGaussianBlur in="SourceAlpha" stdDeviation="2.8" result="blur"/>
+            <feOffset in="blur" dx="0" dy="3.5" result="shifted"/>
+            <feFlood flood-color="#1e0000" flood-opacity="0.60" result="color"/>
+            <feComposite in="color" in2="shifted" operator="in" result="shadow"/>
+            <feMerge>
+              <feMergeNode in="shadow"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+          <!-- Golden light filter — replaces the dark fold shadow on tap -->
+          <!-- Two layers: tight amber edge + wide soft outer glow -->
+          <filter id="ef-golden-shadow" x="-5%" y="-5%" width="110%" height="145%">
+            <!-- Tight bright edge at the V-crease -->
+            <feGaussianBlur in="SourceAlpha" stdDeviation="3" result="blur-tight"/>
+            <feOffset in="blur-tight" dx="0" dy="4" result="shifted-tight"/>
+            <feFlood flood-color="#e8b830" flood-opacity="0.88" result="gold1"/>
+            <feComposite in="gold1" in2="shifted-tight" operator="in" result="golden-edge"/>
+            <!-- Wide soft outer spread -->
+            <feGaussianBlur in="SourceAlpha" stdDeviation="8" result="blur-wide"/>
+            <feOffset in="blur-wide" dx="0" dy="6" result="shifted-wide"/>
+            <feFlood flood-color="#f5d060" flood-opacity="0.42" result="gold2"/>
+            <feComposite in="gold2" in2="shifted-wide" operator="in" result="golden-glow"/>
+            <feMerge>
+              <feMergeNode in="golden-glow"/>
+              <feMergeNode in="golden-edge"/>
+              <feMergeNode in="SourceGraphic"/>
+            </feMerge>
+          </filter>
+
+        </defs>
+
+        <!-- ── Envelope body ── -->
+        <rect width="100" height="100" fill="url(#ef-body)"/>
+
+        <!-- ── Formal double-line border frame — embossed look, light then shadow ── -->
+        <!-- Outer frame highlight — salmon -->
+        <rect x="3"   y="3"   width="94" height="94" fill="none" stroke="rgba(255,132,120,0.18)" stroke-width="0.40"/>
+        <!-- Outer frame shadow — darkest -->
+        <rect x="3.6" y="3.6" width="94" height="94" fill="none" stroke="rgba(30,0,0,0.14)"      stroke-width="0.40"/>
+        <!-- Inner frame highlight -->
+        <rect x="5"   y="5"   width="90" height="90" fill="none" stroke="rgba(255,132,120,0.11)" stroke-width="0.25"/>
+        <!-- Inner frame shadow -->
+        <rect x="5.4" y="5.4" width="90" height="90" fill="none" stroke="rgba(30,0,0,0.09)"      stroke-width="0.25"/>
+
+        <!-- ── Top V-flap: triangle with drop-shadow casting onto the body below ── -->
+        <polygon points="0,0 100,0 50,52" fill="url(#ef-flap)" filter="url(#ef-fshadow)"/>
+
+        <!-- ── Bright highlight along each V-edge: paper edge catching light ── -->
+        <line class="flap-line flap-line--top" x1="0"   y1="0" x2="50" y2="52" stroke="rgba(255,255,255,0.80)" stroke-width="0.65" stroke-linecap="round"/>
+        <line class="flap-line flap-line--top" x1="100" y1="0" x2="50" y2="52" stroke="rgba(255,255,255,0.80)" stroke-width="0.65" stroke-linecap="round"/>
+
+        <!-- ── Subtle lower fold hints (bottom flap seam, very faint) ── -->
+        <line class="flap-line flap-line--side" x1="0"   y1="100" x2="50" y2="52" stroke="rgba(255,255,255,0.18)" stroke-width="0.3"/>
+        <line class="flap-line flap-line--side" x1="100" y1="100" x2="50" y2="52" stroke="rgba(255,255,255,0.18)" stroke-width="0.3"/>
+      </svg>
+
+      <!-- Full-screen rough paper texture overlay -->
+      <img src="assets/images/rough-texture.svg" class="cover__texture" aria-hidden="true" draggable="false" />
+
+      <!-- "You Are Invited" script text -->
+      <p class="cover__invited" aria-hidden="true">You Are Invited</p>
+
+      <!-- Wax seal — dead center, using PNG asset -->
+      <div class="wax-center" id="sealWrap" tabindex="0" role="button" aria-label="Open invitation">
+        <img
+          src="assets/images/wax-seal.png"
+          alt="Wax seal"
+          class="seal-img"
+          draggable="false"
+        />
+      </div>
+
+      <!-- Subtle tap hint — minimal text only -->
+      <p class="cover__hint" aria-hidden="true">tap anywhere to open</p>
+
+    </div><!-- /.cream-cover -->
+
+  </section>
+
+  <!-- ═══════════════════════════════════════════
+       MAIN INVITATION — everything after tap
+  ═══════════════════════════════════════════ -->
+  <main id="invitation" class="invitation hidden" aria-hidden="true">
+
+    <!-- ─── SECTION 2 — Announcement ─── -->
+    <section id="announcement" class="screen screen--announcement" aria-label="Announcement">
+      <div class="announcement__inner">
+        <p class="announce__pre">We joyfully announce our</p>
+        <h1 class="announce__headline">Engagement</h1>
+
+        <!-- Cover photo -->
+        <div class="rings-art">
+          <img src="assets/images/cover.jpg" class="announcement__ornament" alt="Rosemary and Dion" draggable="false" />
+        </div>
+
+        <div class="announce__names">
+          <span class="announce__name announce__name--bride">Rosemary</span>
+          <span class="announce__ampersand">&amp;</span>
+          <span class="announce__name announce__name--groom">Ittymathew</span>
+        </div>
+
+        <div class="announce__date-badge anim-fadeup">
+          <span class="badge__day">Saturday</span>
+          <span class="badge__date">April 11, 2026</span>
+          <span class="badge__time">11 : 30 AM</span>
+        </div>
+
+        <div class="announce__families">
+          <div class="family family--bride">
+            <p class="family__label">Daughter of</p>
+            <p class="family__names">Mr. Antony P.V &amp; Mrs. Mini Antony</p>
+            <p class="family__home">Pallipadan House<br/>Pudukad P.O, Thrissur</p>
+          </div>
+          <div class="family__divider" aria-hidden="true">✦</div>
+          <div class="family family--groom">
+            <p class="family__label">Son of</p>
+            <p class="family__names">Mr. Paul Mathews &amp; Mrs. Neena Paul</p>
+            <p class="family__home">Eluvathingal Parapukara House<br/>Ollukara P.O, Thrissur</p>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="scroll-arrows" aria-hidden="true">
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--1"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--2"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--3"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 3 — Countdown ─── -->
+    <section id="countdown-section" class="screen screen--countdown" aria-label="Countdown">
+      <div class="countdown__inner">
+        <p class="section__pre">Counting down</p>
+        <h2 class="section__title">Days Until We Say Yes</h2>
+        <p class="section__sub">For the most beautiful day</p>
+
+        <div class="countdown__timer" id="countdownTimer" role="timer" aria-live="polite">
+          <div class="timer__block">
+            <span class="timer__value" id="cd-days">--</span>
+            <span class="timer__label">Days</span>
+          </div>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <div class="timer__block">
+            <span class="timer__value" id="cd-hours">--</span>
+            <span class="timer__label">Hours</span>
+          </div>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <div class="timer__block">
+            <span class="timer__value" id="cd-minutes">--</span>
+            <span class="timer__label">Minutes</span>
+          </div>
+          <span class="timer__sep" aria-hidden="true">:</span>
+          <div class="timer__block">
+            <span class="timer__value" id="cd-seconds">--</span>
+            <span class="timer__label">Seconds</span>
+          </div>
+        </div>
+
+        <div class="countdown__note">
+          April 11, 2026 — Engagement Ceremony
+        </div>
+      </div>
+
+      <!-- Floating petals -->
+      <div class="float-petal fp-1" aria-hidden="true"></div>
+      <div class="float-petal fp-2" aria-hidden="true"></div>
+      <div class="float-petal fp-3" aria-hidden="true"></div>
+
+      <div class="scroll-arrows" aria-hidden="true">
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--1"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--2"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--3"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 4 — Engagement Details ─── -->
+    <section id="details" class="screen screen--details" aria-label="Event details">
+      <div class="details__inner">
+        <p class="section__pre">Details of the day</p>
+        <h2 class="section__title">Everything You Need to Know</h2>
+
+        <div class="venue-grid">
+
+          <!-- Betrothal ceremony -->
+          <div class="venue-card">
+            <div class="venue-card__thumb-wrap">
+              <div class="venue-card__thumb">
+                <iframe
+                  title="St. Antony's Forane Church, Pudukad"
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3921.2!2d76.3726!3d10.2905!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x3b0800e38e49d4d5%3A0x1c7a4f3ad10ddf3f!2sSt.%20Antony's%20Forane%20Church%2C%20Pudukad!5e0!3m2!1sen!2sin!4v1700000000000"
+                  class="venue-card__map"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <a
+                href="https://maps.google.com/?q=St.+Antony's+Forane+Church+Pudukad+Kerala"
+                class="venue-card__btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >View location</a>
+            </div>
+            <div class="venue-card__info">
+              <p class="venue-card__type">
+                <span class="venue-icon" aria-hidden="true">⛪</span>
+                Engagement
+              </p>
+              <p class="venue-card__name">St. Antony's Forane Church,</p>
+              <p class="venue-card__place">Pudukad, Thrissur</p>
+              <p class="venue-card__time">Sat, Apr 11, 2026 · 11:30 AM</p>
+            </div>
+          </div>
+
+          <!-- Lunch -->
+          <div class="venue-card">
+            <div class="venue-card__thumb-wrap">
+              <div class="venue-card__thumb">
+                <iframe
+                  title="Zion Parish Hall, Pudukad"
+                  src="https://maps.google.com/maps?q=Zion+Parish+Hall+Pudukad+Thrissur+Kerala&output=embed"
+                  class="venue-card__map"
+                  loading="lazy"
+                  referrerpolicy="no-referrer-when-downgrade"
+                ></iframe>
+              </div>
+              <a
+                href="https://maps.google.com/?q=Zion+Parish+Hall+Pudukad+Thrissur+Kerala"
+                class="venue-card__btn"
+                target="_blank"
+                rel="noopener noreferrer"
+              >View location</a>
+            </div>
+            <div class="venue-card__info">
+              <p class="venue-card__type">
+                <span class="venue-icon" aria-hidden="true">🍽️</span>
+                Lunch to follow
+              </p>
+              <p class="venue-card__name">Zion Parish Hall,</p>
+              <p class="venue-card__place">Pudukad, Thrissur</p>
+              <p class="venue-card__time">Sat, Apr 11, 2026</p>
+            </div>
+          </div>
+
+        </div>
+
+        <button
+          class="btn btn--secondary"
+          id="addToCalendar"
+          aria-label="Add engagement to calendar"
+        >
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" class="btn__icon" aria-hidden="true">
+            <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+            <line x1="16" y1="2" x2="16" y2="6"/>
+            <line x1="8" y1="2" x2="8" y2="6"/>
+            <line x1="3" y1="10" x2="21" y2="10"/>
+            <line x1="8" y1="14" x2="8" y2="14" stroke-width="3" stroke-linecap="round"/>
+            <line x1="12" y1="14" x2="12" y2="14" stroke-width="3" stroke-linecap="round"/>
+            <line x1="16" y1="14" x2="16" y2="14" stroke-width="3" stroke-linecap="round"/>
+          </svg>
+          Add to Calendar
+        </button>
+      </div>
+
+      <div class="scroll-arrows" aria-hidden="true">
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--1"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--2"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--3"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </div>
+    </section>
+
+    <!-- ─── SECTION 5 — Wedding / Holy Matrimony ─── -->
+    <section id="wedding" class="screen screen--wedding" aria-label="Wedding ceremony details">
+
+      <!-- Venue / calendar details — top half -->
+      <div class="details__inner">
+        <p class="section__pre">Save the Date</p>
+        <h2 class="section__title">Wedding</h2>
+
+        <div class="venue-card">
+          <div class="venue-card__thumb-wrap">
+            <div class="venue-card__thumb">
+              <iframe
+                title="Marth Mariam Cathedral Church, Thrissur"
+                src="https://maps.google.com/maps?q=Marth+Mariam+Cathedral+Church+Thrissur+Kerala&output=embed"
+                class="venue-card__map"
+                loading="lazy"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
+            </div>
+            <a
+              href="https://maps.google.com/?q=Marth+Mariam+Cathedral+Church+Thrissur+Kerala"
+              class="venue-card__btn"
+              target="_blank"
+              rel="noopener noreferrer"
+            >View location</a>
+          </div>
+          <div class="venue-card__info">
+            <p class="venue-card__type">
+              <span class="venue-icon" aria-hidden="true">💍</span>
+              Wedding Ceremony
+            </p>
+            <p class="venue-card__name">Marth Mariam Cathedral Church,</p>
+            <p class="venue-card__place">Thrissur, Kerala</p>
+            <p class="venue-card__time">Sun, Apr 19, 2026 · 10:10 AM</p>
+          </div>
+
+        </div><!-- /.venue-card -->
+
+      </div><!-- /.details__inner -->
+
+      <!-- Photo gallery — bottom half -->
+      <div class="photo-stack" id="photoStack">
+        <div class="photo-stack__deck" id="photoDeck" aria-label="Photo gallery">
+          <div class="photo-card"><img src="Photos/1.jpg"  alt="Rosemary and Ittymathew" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/2.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/3.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/4.png"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/5.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/6.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/7.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/8.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/9.jpg"  alt="" draggable="false" loading="lazy"></div>
+          <div class="photo-card"><img src="Photos/10.jpg" alt="" draggable="false" loading="lazy"></div>
+        </div>
+        <div class="scroll-arrows" aria-hidden="true">
+          <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--1"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--2"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <svg viewBox="0 0 20 10" class="scroll-arrow scroll-arrow--3"><path d="M1 1 L10 9 L19 1" stroke="currentColor" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+
+    </section>
+
+    <!-- ─── SECTION 6 — Closing / RSVP ─── -->
+    <section id="closing" class="screen screen--closing" aria-label="Closing message">
+      <div class="closing__inner">
+        <div class="closing__seal-mini" aria-hidden="true">
+          <picture>
+            <source srcset="assets/images/wax-seal.png" type="image/png" />
+            <img src="assets/images/wax-seal.svg" alt="" class="closing__seal-img" />
+          </picture>
+        </div>
+
+        <blockquote class="closing__verse">
+          <p>"So they are no longer two, but one flesh. Therefore what God has joined together, let no one separate."</p>
+          <footer>— Matthew 19:6</footer>
+        </blockquote>
+
+        <p class="closing__message">
+          We are blessed to share this moment with you.<br/>
+          Your presence and prayers mean the world to us.
+        </p>
+
+        <div class="closing__couple">
+          <span class="closing__bride">Rosemary</span>
+          <img src="assets/images/ornament.svg" class="closing__heart-svg" aria-hidden="true" draggable="false" />
+          <span>Ittymathew</span>
+        </div>
+
+        <p class="closing__date">April 11, 2026</p>
+
+        <div class="closing__family">
+          <p>With love from</p>
+          <p><strong>Lidiya, Jobi &amp; Mikhael</strong></p>
+        </div>
+
+        <a href="tel:+919496289565" class="closing__phone-btn" aria-label="Call 9496289565">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+            <path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07A19.5 19.5 0 013.07 9.8a19.79 19.79 0 01-3.07-8.68A2 2 0 012 1h3a2 2 0 012 1.72 12.84 12.84 0 00.7 2.81 2 2 0 01-.45 2.11L6.09 8.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45 12.84 12.84 0 002.81.7A2 2 0 0122 16.92z"/>
+          </svg>
+          9496289565
+        </a>
+      </div>
+    </section>
+
+    <!-- Side navigation dots -->
+    <nav id="sectionDots" class="section-dots" aria-label="Section navigation" aria-hidden="true">
+      <button class="section-dot" data-section="0" aria-label="Announcement"></button>
+      <button class="section-dot" data-section="1" aria-label="Countdown"></button>
+      <button class="section-dot" data-section="2" aria-label="Details"></button>
+      <button class="section-dot" data-section="3" aria-label="Wedding"></button>
+      <button class="section-dot" data-section="4" aria-label="Closing"></button>
+    </nav>
+
+  </main>
+
+  <script src="js/main.js"></script>
+</body>
+</html>
